@@ -1,0 +1,19 @@
+<div class="bg-inverse">
+  <div class="container center-content full-page-cover">
+    <div class="card col-md-4 p-3 card-dark shadow-inverse">
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Email</label>
+          <input type="email" class="form-control bg-inverse" id="formGroupExampleInput" placeholder="example@domain.com" [(ngModel)]="emailValue"
+            name="txtEmail">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Password</label>
+          <input type="password" class="form-control bg-inverse" id="formGroupExampleInput2" placeholder="********" [(ngModel)]="passwordValue"
+            name="txtPassword">
+        </div>
+      </form>
+      <button (click)="createUser()" type="submit" class="btn btn-outline-primary">Sign Up</button>
+    </div>
+  </div>
+</div>

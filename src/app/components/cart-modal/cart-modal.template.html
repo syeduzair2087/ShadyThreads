@@ -1,0 +1,30 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="list-group" *ngIf="(response | async)?.length > 0">
+          <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let order of response | async">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{order.order_title}}</h5>
+              <small><button class="btn btn-outline-danger" (click)="btnClickRemoveItem(order.$key)">Remove</button></small>
+            </div>
+            <p class="mb-1" *ngFor="let pref of order.order_prefs">{{pref.pref_title + ": " + pref.pref_value}}</p>
+          </div>
+        </div>
+        <div *ngIf="(response | async)?.length == 0">
+          <p>Sorry, you currently don't have any item in your cart.</p>
+        </div>
+      </div>
+      <div class="modal-footer" *ngIf="(response | async)?.length > 0">
+        <button type="button" class="btn btn-outline-danger" (click)="btnClickRemoveAll()" >Remove All</button>
+        <button type="button" class="btn btn-outline-success" (click)="btnClickCheckout()" data-toggle="modal" data-target="#exampleModal">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>

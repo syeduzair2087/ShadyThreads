@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card-deck">
+    <div class="col-md-4 bg-inverse" *ngFor="let resp of Response | async">
+      <div class="card">
+        <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/shady-threads.appspot.com/o/resources%2Flatest-image.jpg?alt=media&token=0f20743b-033d-4346-a768-9e4062db0338"
+          alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">{{resp.category_products[resp.category_products.length-1].product_name}}</h4>
+            <p class="card-text"><small class="text-muted">Rs. {{resp.category_products[resp.category_products.length-1].product_price}}/-</small></p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row py-2 text-center">
+    <div class="col-md text-muted">
+      <h4>Company Info</h4>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate diam in lacus fermentum, eget finibus lorem mollis.
+      Sed at tincidunt odio. Etiam ac ligula viverra, cursus augue vel, faucibus nisl. Pellentesque vitae egestas lacus.
+      Pellentesque et neque ante. Proin risus metus, rutrum non volutpat at, dictum id nulla.
+    </div>
+    <div class="col-md text-muted">
+      <h4>Contact Info</h4>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate diam in lacus fermentum, eget finibus lorem mollis.
+      Sed at tincidunt odio. Etiam ac ligula viverra, cursus augue vel, faucibus nisl. Pellentesque vitae egestas lacus.
+      Pellentesque et neque ante. Proin risus metus, rutrum non volutpat at, dictum id nulla.
+    </div>
+    <div class="col-md text-muted">
+      <h4>Support</h4>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate diam in lacus fermentum, eget finibus lorem mollis.
+      Sed at tincidunt odio. Etiam ac ligula viverra, cursus augue vel, faucibus nisl. Pellentesque vitae egestas lacus.
+      Pellentesque et neque ante. Proin risus metus, rutrum non volutpat at, dictum id nulla.
+    </div>
+  </div>
+</div>
+<hr class="my-2 bg-inverse">

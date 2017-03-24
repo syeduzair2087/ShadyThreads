@@ -1,0 +1,15 @@
+<form class="form-inline animated fadeInDown" *ngIf="!(this.loginServices.getLoginState())">
+  <label class="sr-only" for="inlineFormInput">Email</label>
+  <input type="text" class="form-control mx-1" id="inlineFormInput" placeholder="Email" [(ngModel)]="loginEmail" name="txtLoginEmail">
+    <label class="sr-only" for="inlineFormInputGroup">Password</label>
+    <!--<div class="input-group mb-2 mr-sm-2 mb-sm-0">-->
+      <input type="password" class="form-control mx-1" id="inlineFormInputGroup" placeholder="Password" [(ngModel)]="loginPassword"
+        name="txtLoginPassword">
+    <!--</div>-->
+    <button type="submit" class="btn btn-outline-primary mx-1" (click)="btnClickLogin()">Login</button>
+</form>
+<form class="form-inline animated fadeInDown" *ngIf="this.loginServices.getLoginState()">
+  <button class="btn btn-outline-secondary mx-1" [routerLink]="'/account'">Account Settings </button>
+  <button class="btn btn-outline-warning mx-1" data-toggle="modal" data-target="#exampleModal">Cart </button>
+  <button class="btn btn-outline-danger mx-1" (click)="btnClickLogout()">Logout </button>
+</form>

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Shady-Threads</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/home'" [routerLinkActive]="'active'">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/products'" [routerLinkActive]="'active'">Products </a>
+        </li>
+        <li class="nav-item" *ngIf="!(this.loginServices.getLoginState())">
+          <a class="nav-link" [routerLink]="'/signup'" [routerLinkActive]="'active'">Sign-Up </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link no-href-pointer" *ngIf="searchVisible && !(this.loginServices.getLoginState())" (click)="formToggle()">Login </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link no-href-pointer" *ngIf="searchVisible && this.loginServices.getLoginState()" (click)="formToggle()">Dashboard </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link no-href-pointer" *ngIf="!searchVisible" (click)="formToggle()">Search </a>
+        </li>
+      </ul>
+      <search-box *ngIf="searchVisible" class="animated fadeInDown"></search-box>
+      <login-form *ngIf="!searchVisible" class="animated fadeInDown"></login-form>
+    </div>
+</nav>

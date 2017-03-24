@@ -1,0 +1,24 @@
+<div class="bg-dark">
+    <div class="form-group">
+        <div class="animated fadeInDown">
+            <label for="colorSelect">Quantity</label>
+            <input type="number" class="form-control bg-inverse" [attr.id]="'txtQuantity_' + category_id" min="1" max="19" ng-pattern=".{1,2}"
+            />
+        </div>
+        <div *ngFor="let cat of category_prefs" class="animated fadeInDown">
+            <label [attr.for]="'pref' + cat.pref_title">{{cat.pref_title}}</label>
+            <select class="form-control bg-inverse" [attr.id]="'pref' + cat.pref_title">
+                    <option *ngFor="let prefval of cat.pref_values">{{prefval}}</option>
+                  </select>
+        </div>
+        <div *ngIf="color_select_visible" class="animated fadeInDown">
+            <label for="colorSelect">Color</label>
+            <select class="form-control bg-inverse" [attr.id]="'colorSelect_' + category_id">
+                    <option *ngFor="let color of color_list">{{color}}</option>
+                  </select>
+        </div>
+        <div class="animated fadeInDown" *ngIf="color_select_visible">
+            <button class="btn btn-outline-primary btn-block mt-4" id="btnAddToCart" (click)="btnClickAddToCart()">Add To Cart</button>
+        </div>
+    </div>
+</div>

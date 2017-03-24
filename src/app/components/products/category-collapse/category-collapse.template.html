@@ -1,0 +1,25 @@
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card card-dark" *ngFor="let resp of Response | async; let cat_id = index">
+    <div class="card-header card-header-dark text-center" role="tab" id="headingOne">
+      <button (click)="hideColorSelect()" class="btn btn-transparent btn-block" data-toggle="collapse" data-parent="#accordion"
+        [attr.data-target]="'#' + resp.category_title" aria-expanded="true" aria-controls="collapseOne">
+        {{resp.category_title}}
+        </button>
+    </div>
+    <div id="{{resp.category_title}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <div>
+          <div class="card-deck">
+            <products-panel [products_list]="resp.category_products" [category_id]="cat_id" (getColorEventEmitter)=getProductColorsById($event) class="col-md-10"></products-panel>
+            <!--<router-outlet name="details-outlet" class="col-md-2"></router-outlet>-->
+            <details-panel [category_id]="cat_id" [category_prefs]="resp.category_prefs" [product_id]="this.detailProductId" [color_select_visible]="this.colorSelectVisible"
+              [color_list]="this.Colors" (addToCartEventEmitter)="addToCart($event)" class="col-md-2"></details-panel>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!--[category_id]="cat_id" [category_prefs]="resp.category_prefs" [product_id]="this.detailProductId" [color_select_visible]="this.colorSelectVisible"
+              [color_list]="this.Colors" (addToCartEventEmitter)="addToCart($event)"-->
